@@ -1,6 +1,6 @@
 # README
 DMM WEBCAMP「アプリケーションを完成させよう2」10章の提出課題です
-##　内容
+## 内容
 ログイン機能を持ち、読んだ本の感想を投稿するサイトです。
 
 This README would normally document whatever steps are necessary to get the
