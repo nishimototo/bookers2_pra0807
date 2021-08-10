@@ -36,4 +36,8 @@ class Book < ApplicationRecord
       Book.all
     end
   end
+
+  def self.cate_search(search)
+    Book.where("category LIKE?", "#{search}")
+  end
 end
