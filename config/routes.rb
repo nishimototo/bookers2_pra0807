@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
      get :follows, on: :member
      get :followers, on: :member
+     get :count_search, on: :member
   end
 
   resources :books do

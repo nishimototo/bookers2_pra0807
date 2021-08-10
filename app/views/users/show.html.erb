@@ -76,6 +76,16 @@
           </tr>
         </tbody>
       </table>
+
+      <%= form_with url: count_search_user_path(@user), method: :get do |f| %>
+        <%= f.date_field :created_at %>
+        <%= f.submit "検索", class: "btn btn-primary" %>
+      <% end %>
+      <div id="search_result">
+        <% if @count_search.present? %>
+          <%= render "users/count", count_search: @count_search %>
+        <% end %>
+      </div>
     </div>
 
   </div>
