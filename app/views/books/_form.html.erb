@@ -8,5 +8,18 @@
       <%= f.label :Opinion %>
       <%= f.text_area :body, class:"form-control" %>
     </div>
+    <div id="star" class="form-group">
+      <%= f.label :Rate %>
+      <%= f.hidden_field :rate, class:"form-control" %>
+    </div>
+    <script>
+      $('#star').raty({
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        scoreName: 'book[rate]',
+        half: true
+      });
+    </script>
     <%= f.submit "Create Book", class:"btn btn-success" %>
   <% end %>

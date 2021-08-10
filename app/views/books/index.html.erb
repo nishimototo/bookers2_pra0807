@@ -7,6 +7,8 @@
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
+      <%= link_to "新着順", books_path(sort: "created_at DESC") %> |
+      <%= link_to "評価の高い順", books_path(sort: "rate DESC") %>
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
@@ -32,6 +34,20 @@
                 <%= render "favorites/favorite", book: book %>
               </td>
               <td>コメント数：<%= book.book_comments.count %></td>
+              <td>
+                <div id="rate_<%= book.id %>"></div>
+                <script>
+                $('#rate_<%= book.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= book.rate %>
+                });
+              </script>
+              </td>
               <td>閲覧数：<%= book.impressionist_count %></td>
             </tr>
           <% end %>
