@@ -1,2 +1,28 @@
-<h1>Chats#show</h1>
-<p>Find me in app/views/chats/show.html.erb</p>
+<h2><%= @user.name %>さんとのチャット</h2>
+<div class="col-md-3">
+  <table class="message table table-borderless">
+    <% @chats.each do |chat| %>
+      <% if chat.user == current_user %>
+        <tbody>
+          <tr>
+            <td>
+              <p style="text-align: left;"><%= chat.message %></p>
+            </td>
+          </tr>
+        </tbody>
+      <% else %>
+        <tbody>
+          <tr>
+            <td>
+              <p style="text-align: right;"><%= chat.message %></p>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    <% end %>
+  </table>
+  <%= form_with model: @chat do |f| %>
+    <%= f.text_field :message %>
+    <%= f.hidden_field :room_id %>
+  <% end %>
+</div>
